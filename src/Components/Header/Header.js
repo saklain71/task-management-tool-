@@ -6,19 +6,22 @@ const Header = () => {
         <div>
             <div class="navbar bg-base-100">
                 <div class="navbar-start">
-                    <div class="dropdown">
+                    <div class="dropdown hidden:lg">
                         <label tabindex="0" class="btn btn-ghost btn-circle">
                             <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h7" /></svg>
                         </label>
                         <ul tabindex="0" class="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52">
-                            <li><a>ToDo List</a></li>
-                            <li><a>Complete Task</a></li>
+                            <li><Link to="/todo">ToDo List</Link></li>
+                            <li><Link to="/completeTask">Complete Task</Link></li>
                             <li><Link to="/calender">Calender</Link></li>
                         </ul>
+                        <Link className='btn btn-ghost normal-case text-xl' to="/">Task Manager</Link>
                     </div>
                 </div>
-                <div class="navbar-center">
-                    <a class="btn btn-ghost normal-case text-xl">Task Manager</a>
+                <div class="navbar-center hidden lg:block">
+                    <Link className='btn btn-ghost normal-case text-xl' to="/todo">TodoList</Link>
+                    <Link className='btn btn-ghost normal-case text-xl' to="/completeTask">Complete Task</Link>
+                    <Link className='btn btn-ghost normal-case text-xl' to="/calender">Calender</Link>
                 </div>
                 <div class="navbar-end">
                 
