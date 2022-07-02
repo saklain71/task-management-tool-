@@ -12,7 +12,22 @@ const TodoList = () => {
     }, [todo]);
 
     const handleDone = (id) => {
+        
         //e.preventDefault();
+        fetch('http://localhost:5000/clists', {
+            method: 'POST',
+            body: JSON.stringify({
+                data: todo,
+            }),
+            headers: {
+                'Content-type': 'application/json; charset=UTF-8',
+            },
+        })
+            .then((response) => response.json())
+            .then((data) => {
+                console.log(data)
+            });
+
 
         fetch(`http://localhost:5000/list/${id}`, {
             method: 'DELETE',

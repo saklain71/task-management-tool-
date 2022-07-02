@@ -6,6 +6,7 @@ import Header from './Components/Header/Header';
 import TodoList from './Components/TodoList/TodoList';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import CompleteTAsk from './Components/CompleteTask/CompleteTAsk';
 
 //import Navbar from './Components/Navbar/Navbar';
 
@@ -15,8 +16,10 @@ function App() {
       <Header></Header>
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/calender" element={<Calender />} />
+       
         <Route path="/todo" element={<TodoList></TodoList>}></Route>
+        <Route path="completeTask" element={<CompleteTAsk></CompleteTAsk>}></Route>
+        <Route path="/calender" element={<Calender />} />
         
       </Routes>
       <ToastContainer />
