@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { toast } from 'react-toastify';
 
 const TodoList = () => {
     const [todo, setTodo] = useState([]);
@@ -17,7 +18,11 @@ const TodoList = () => {
             method: 'DELETE',
         })
             .then(response => response.json())
-            .then(data => console.log(data))
+            .then(data => {
+                console.log(data)
+                toast("Task succesfully done")
+            })
+
     }
 
     return (
@@ -33,7 +38,7 @@ const TodoList = () => {
                             className="mt-2"
                         >
                             {list.data}
-                            <button onClick={()=>handleDone(list._id)} className='mx-8 btn btn-info'>Done</button>
+                            <button onClick={() => handleDone(list._id)} className='mx-8 btn btn-info'>Done</button>
                         </li>)
                 }
 
