@@ -1,5 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { FcAddDatabase } from "react-icons/fc";
+import { toast } from 'react-toastify';
+
 
 
 const Home = () => {
@@ -18,26 +20,30 @@ const Home = () => {
     const addbtn = e => {
         e.preventDefault();
 
-        fetch('http://localhost:5000/lists',{
+        fetch('http://localhost:5000/lists', {
             method: 'POST',
-            body : JSON.stringify({
-                data : input,
+            body: JSON.stringify({
+                data: input,
             }),
-            headers:{
+            headers: {
                 'Content-type': 'application/json; charset=UTF-8',
             },
         })
-        .then((response) => response.json())
-        .then((data) => console.log(data));
+            .then((response) => response.json())
+            .then((data) => {
+                console.log(data)
+                toast('Succefully added to ToDoList')
+            });
+
         setInput("")
     };
     //console.log(input);
     return (
         <form>
-            <div className=' flex justify-center align-middle'>
+            <div className=' flex justify-center align-middle mt-16'>
                 <FcAddDatabase size={35} />
                 <input
-                    className='border-black rounded border-2 mx-2'
+                    className='border-black rounded border-2 mx-2 px-2'
                     type="text"
                     onChange={handleChange}
                     placeholder=' Make a todo list'
@@ -49,9 +55,10 @@ const Home = () => {
                 <button onClick={addbtn} className='btn btn-info'>Add</button>
             </div>
             <div>
-                
+
             </div>
         </form>
+
     );
 };
 
