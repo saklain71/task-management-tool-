@@ -3,7 +3,7 @@ import { FcAddDatabase } from "react-icons/fc";
 
 
 const Home = () => {
-    const [input, setInput] = useState([]);
+    const [input, setInput] = useState("");
     const inputRef = useRef(null);
 
     useEffect(() => {
@@ -29,17 +29,18 @@ const Home = () => {
         })
         .then((response) => response.json())
         .then((data) => console.log(data));
+        setInput("")
     };
     //console.log(input);
     return (
         <form>
-            <div className='flex justify-center align-middle'>
+            <div className=' flex justify-center align-middle'>
                 <FcAddDatabase size={35} />
                 <input
                     className='border-black rounded border-2 mx-2'
                     type="text"
                     onChange={handleChange}
-                    placeholder='Make a todo list'
+                    placeholder=' Make a todo list'
                     value={input}
                     ref={inputRef}
                     maxLength={300}
